@@ -348,3 +348,6 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+/net60/module2/before/FutureProofing/.vs/
+/net60/module2/before/Polygons/.vs/
+/net60/module3/before/Extensibility/.vs/Extensibility/FileContentIndex/read.lock
