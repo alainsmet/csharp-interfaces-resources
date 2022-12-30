@@ -7,7 +7,11 @@ class Program
         Console.WriteLine("Odd Numbers:");
 
         var generator = new OddGenerator();
-        // add code here
+        foreach (int odd in generator)
+        {
+            if (odd > 50) break;
+            Console.WriteLine(odd);
+        }
 
         Console.Read();
     }
