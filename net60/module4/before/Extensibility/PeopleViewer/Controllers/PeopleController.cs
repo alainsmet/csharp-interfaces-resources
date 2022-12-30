@@ -8,6 +8,20 @@ public class PeopleController : Controller
 {
     private ReaderFactory factory = new ReaderFactory();
 
+    IConfiguration Configuration;
+
+    public PeopleController(IConfiguration configuration)
+    {
+        Configuration = configuration;
+    }
+
+    public IActionResult UseConfiguredReader()
+    {
+        string readerType = Configuration["PersonReaderType"];
+        ViewData["Title"] = $"Using Configured Reader : {readerType}";
+        return PopulatePeopleView(readerType);
+    }
+
     public IActionResult UseService()
     {
         ViewData["Title"] = "Using a Web Service";

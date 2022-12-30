@@ -6,18 +6,16 @@ namespace PeopleViewer.Controllers;
 
 public class PeopleController : Controller
 {
-    private ReaderFactory readerFactory;
+    private IPersonReader reader;
 
-    public PeopleController(IConfiguration configuration)
+    public PeopleController(IPersonReader dataReader)
     {
-        readerFactory = new ReaderFactory(configuration);
+        reader = dataReader;
     }
 
     public IActionResult UseRuntimeReader()
     {
-        IPersonReader reader = readerFactory.GetReader();
         IEnumerable<Person> people = reader.GetPeople();
-
         ViewData["Title"] = "Using a Runtime Reader";
         ViewData["ReaderType"] = reader.GetType().ToString();
         return View("Index", people);
